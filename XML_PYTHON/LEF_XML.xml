@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root testAttr="testValue">
+
+<metadata>
+<circular>RBI/2018-19/196_DBR.No.BP.BC.43/21.01.003/2018-19</circular>
+<date format="mmddyyyy">09032019</date>
+<:regulated attribute="include">ScheduledCommericalBanks</i:regulated>
+<e:regulated attribute="exclude">RegionalRuralBanks</e:regulated>
+<department attribute="include">
+    <value>Compliance</value>
+    <value>IT</value>
+</department>
+</metadata>
+
+<data>
+    <groups>
+        <group>value</group>
+        <group>value</group>
+    </groups>
+
+    <counterparties>
+        <counterparty>value</counterparty>
+        <counterparty>value</counterparty>
+    </counterparties>
+
+    <exposurevalues>
+        <exposurevalue>ExpV</exposurevalue>
+    </exposurevalue>
+
+    <availableeligiblecapitalbase>
+        <value>CapBase</value>
+    </availableeligiblecapitalbase> 
+
+    <groupcounterparties>
+        <groupcounterparty>value</groupcounterparty>
+        <groupcounterparty>value</groupcounterparty>
+    </groupcounterparties>   
+
+</data>
+
+<businessrule>
+    <counterparty index="0">
+    <if counterparty="ABC">
+        <condition>
+            <exposurevalue index="0" operator="&gt">20</exposurevalue>
+        <do>
+            <condition>
+                <exposurevalue index="0" operator="&gt">25</exposurevalue>
+                <check tag="board-approval=NO"></check>
+            <do>
+                <email to="rbi_dbs@rbi.org"></email>
+            </do>
+            </condition>
+        <email to="rbi_dbs@rbi.org"></email>
+        </do>
+        </condition>
+    </if>
+
+    <counterparty index="1">
+    <if counterparty="DEF">
+        <condition>
+            <exposurevalue index="0" operator="&gt">20</exposurevalue>
+        <do>
+            <condition>
+                <exposurevalue index="0" operator="&gt">25</exposurevalue>
+                <check tag="board-approval=NO"></check>
+            <do>
+                <email to="rbi_dbs@rbi.org"></email>
+            </do>
+            </condition>
+        <email to="rbi_dbs@rbi.org"></email>
+        </do>
+        </condition>
+    </if>
+
+    <groupcounterparty index="0">
+    <if groupcounterparty="XYZ">
+        <condition>
+            <exposurevalue operator="&gt">25</exposurevalue>
+        </condition>
+        <do>
+            <email>
+                rbi_dbs@rbi.org
+            </email>
+        </do>
+    </if>     
+
+    <groupcounterparty index="1">
+    <if groupcounterparty="UVW">
+        <condition>
+            <exposurevalue operator="&gt">25</exposurevalue>
+        </condition>
+        <do>
+            <email>
+                rbi_dbs@rbi.org
+            </email>
+        </do>
+    </if>     
+</businessrule>
+
+<signature>
+
+</signature>
+</root>

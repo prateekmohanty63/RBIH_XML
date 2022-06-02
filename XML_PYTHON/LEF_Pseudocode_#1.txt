@@ -1,0 +1,49 @@
+Start
+
+# Include definitions from RBI/2018-19/196 DBR.No.BP.BC.43/21.01.003/2018-19 (Large Exposures Framework)
+# Define Single Counterparty = Fetch definition from master directive
+# Define exposure value =
+# Define Group Counterparty = Para 6 of RBI/2018-19/196 DBR.No.BP.BC.43/21.01.003/2018-19
+# Define available eligible capital = Para 5.3 of RBI/2018-19/196 DBR.No.BP.BC.43/21.01.003/2018-19
+# Define pass = Do Nothing
+RBI DBS = Reserve Bank of India, Department of Banking Supervision
+
+list_of_exceptions =
+["Exposures to Government of India that are eligible for 0 percent risk weight under Base III_Capital Regulatory framework",
+"Exposures to Government of State that are eligible for 0 percent risk weight under Base III_Capital Regulatory framework",
+"Exposures to RBI"
+"Exposures where Principal and Interest are fully guaranteed by Government of India"
+"Expsoures secured by Financial Instruments issues by Government of India, to the extent that the eliglity cirteria for recognition of the credit risk mitigation (CRM) are met in"
+"terms of Paragraph 7.III of this circular",
+"Intra-day interbank exposures",
+"Intra-Group exposures"
+"Borrowers to whom limits are authorised for food credit",
+"Banks' clearing activites related exposures to Qualifiying Central Counterparties (QCCPs) as detailed in pragraph 10.1 of this circular",
+"Deposits maintained with NABARD on account of shortfall in acheivements of targets for Priority Sector Lending (PSL)"]
+
+
+If "entity" is in list_of_exceptions :
+    pass
+
+Else If "entity" is Single Counterparty:
+    Check :
+    if exposure Value  is less than or equal to 20 percent of available eligible capital
+        If YES:
+            pass
+        Else:
+            If approval from Board is Yes AND exposure value is less than or equal to 25 percent of available eligible capital:
+                pass
+            Else:
+                Inform CO, RBI DBS
+        If NO:
+            Inform CO, RBI DBS
+
+Else If "entity" is Group Counter Party:
+    Check 
+    if exposure value is less than or equal to 25 percent of available eligible capital:
+        pass
+    else:
+        Inform CO, RBI DBS
+
+
+Stop
